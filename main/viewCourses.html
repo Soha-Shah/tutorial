@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/logo.png">
+    <title>MyLAB</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="../assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/node_modules/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+    <!-- This page CSS -->
+    <!-- chartist CSS -->
+    <link href="../assets/node_modules/morrisjs/morris.css" rel="stylesheet">
+
+    <!--c3 CSS -->
+    <link href="../assets/node_modules/c3-master/c3.min.css" rel="stylesheet">
+    <!--Toaster Popup message CSS -->
+    <link href="../assets/node_modules/toast-master/css/jquery.toast.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- Dashboard 1 Page CSS -->
+    <link href="css/pages/dashboard1.css" rel="stylesheet">
+    <!-- You can change the theme colors from here -->
+    <link href="css/colors/default.css" id="theme" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+<style>
+
+#parent2 {
+  position: relative;
+  top: 0;
+  left: 0;
+
+}
+
+#child2 {
+  position: absolute;
+  top: 190px;
+  left: 100px;
+
+
+}
+
+
+
+.containerr {
+  position: relative;
+  width: 100%;
+}
+
+.image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+
+
+.containerr:hover .image {
+  opacity: 0.3;
+}
+
+.containerr:hover .middle {
+  opacity: 1;
+}
+
+
+</style>
+</head>
+
+<body class="fix-header fix-sidebar card-no-border">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader__figure"></div>
+            <p class="loader__label">Admin Wrap</p>
+        </div>
+    </div>
+
+
+
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+
+
+
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <!-- <header class="topbar" w3-include-html="Teacherheader.html">
+
+        </header> -->
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <aside class="left-sidebar" w3-include-html="new-teacher-sidebar.html">
+
+        </aside>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="row page-titles">
+                <div class="col-md-5 align-self-center">
+                    <h3 class="text-themecolor">Datatable</h3>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                        <li class="breadcrumb-item active">Datatable</li>
+                    </ol>
+                </div>
+                <div class="col-md-7 align-self-center text-right">
+                    <button type="button" class="btn btn-info"  data-toggle="modal" data-target="#ModalScrollable" id="box"> <i class="fa fa-plus-circle"></i> Create New</button>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+
+              <!--  <div class="row">
+                  <div id="alert-message" class="alert alert-danger alert-dismissible fade show" role="alert" >Insert Please</div>
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Teachers</h4>
+                                <h6 class="card-subtitle">Export data to Copy, CSV, Excel, PDF & Print</h6>
+                                <div class="table-responsive m-t-40">
+                                    <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                                        <thead>
+
+                                            <tr>
+                                              <th>Name</th>
+                                              <th>Education</th>
+                                              <th>Image</th>
+                                              <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="teachersTable">
+
+                                        </tbody>
+
+
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
+
+              <div class="container bg-white pt-4">
+
+                <div class="row" id="teachersTable" ></div>
+
+              </div>
+                </div>
+
+
+
+
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="../assets/node_modules/jquery/jquery.min.js"></script>
+    <!-- Bootstrap popper Core JavaScript -->
+    <script src="../assets/node_modules/bootstrap/js/popper.min.js"></script>
+    <script src="../assets/node_modules/bootstrap/js/bootstrap.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="js/perfect-scrollbar.jquery.min.js"></script>
+    <!--Wave Effects -->
+    <script src="js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="js/custom.min.js"></script>
+    <!-- ============================================================== -->
+    <!-- This page plugins -->
+    <!-- ============================================================== -->
+    <!--morris JavaScript -->
+    <script src="../assets/node_modules/raphael/raphael-min.js"></script>
+    <script src="../assets/node_modules/morrisjs/morris.min.js"></script>
+    <!--c3 JavaScript -->
+    <script src="../assets/node_modules/d3/d3.min.js"></script>
+    <script src="../assets/node_modules/c3-master/c3.min.js"></script>
+    <!-- Popup message jquery -->
+    <script src="../assets/node_modules/toast-master/js/jquery.toast.js"></script>
+    <!-- Chart JS -->
+    <script src="js/dashboard1.js"></script>
+    <script src="js/common.js"></script>
+    <!-- ============================================================== -->
+    <!-- Style switcher -->
+    <!-- ============================================================== -->
+    <script src="../assets/node_modules/styleswitcher/jQuery.style.switcher.js"></script>
+    <script src=
+  "https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+<script>
+
+$(document).ready(function (e) {
+  var teacherEmail = getCookie("email");
+  var getEmail = getCookie("email");
+  //alert(getEmail);
+  getStudent(teacherEmail);
+   viewCourses(getEmail);
+
+});
+function viewCourses(getEmail){
+  $.ajax({
+    type: 'POST',
+    url: '../backend/viewCourse.php',
+    data: {
+      action: "getTeacherCourses",
+      teacherEmail:getEmail
+    },
+    success: function(response) {
+      var resp = JSON.parse(response);
+      //console.log("hello");
+      if(resp.StatusCode == 200){
+        var teachers = resp.Data;
+           console.log(resp.Data);
+        for(var i=0; i<teachers.length;i++){
+        var rowhtml=  '<div class="col-md-4">'+
+        '<div class="card" style="width: 20rem; text-align:center;display:inline-block;">'+
+
+              '<div class="containerr" style="position: relative; left: 0; top: 0;">'+
+              '<img style="width:100%; height:250px;" src='+teachers[i]["thumbnail"]+' class="card-img-top" alt="teacher" id="parent2" class="image">'+
+              '<img style="width:100px; height:100px;" src='+teachers[i]["Image"]+' class="img-circle" alt="teacher" id="child2">'+
+
+              '</div>'+
+
+              '<div class="card-body bg-success text-white">'+
+                '<p class="card-text pt-4">'+teachers[i]["UserName"]+'</p>'+
+              '<h3 class="card-title card-text">'+teachers[i]["courseName"]+'</h5>'+
+
+
+
+                                  '</div>'+
+
+
+                                  '</div>'+
+                                '</div>';
+                $("#teachersTable").append(rowhtml);
+        }
+      }
+      else if(resp.StatusCode == 300){
+        console.log(resp.Message);
+      }
+    }
+  });
+}
+
+
+function getStudent(teacherEmail){
+
+  $.ajax({
+    type: 'POST',
+    url: '../backend/teacherdatabyemail.php',
+    data: {
+      action: "getTeacherDataByEmail",
+      teacherEmail : teacherEmail
+    },
+    success: function(response) {
+      var resp = JSON.parse(response);
+      if(resp.StatusCode == 200){
+
+          $("#teacherName").html(resp.Data[0].UserName);
+          $("#teacherEmail").html(resp.Data[0].Email);
+          $("#teacherNameHeader").html(resp.Data[0].UserName);
+          $(".teacherImage").attr("src",resp.Data[0].Image);
+      }
+    }
+  });
+
+
+}
+
+
+
+function getCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0;i < ca.length;i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1,c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        }
+        return null;
+    }
+
+
+
+
+
+
+
+</script>
+</body>
+
+</html>
+<script>
+
+includeHTML();
+</script>

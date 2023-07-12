@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <style>
+    .navBarClass{
+      background-color: #cc0099 !important;
+    }
+    .logoImage{
+      width:100px;
+      height:100px;
+    }
+    .logoText{
+      color:#000000 !important;
+    }
+    .main-content{
+      margin: 100px;
+    }
+    #courseForm{
+      width:1000px;
+      margin: auto;
+      padding:60px 70px;
+    }
+    #addcourseDiv{
+      background-image: url("../images/Coursebackground.jpg");
+      background-repeat: no-repeat;
+       background-size: 100% 100%;
+    }
+  </style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
+    <title>MyLab</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="../assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/node_modules/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+    <!-- This page CSS -->
+    <!-- chartist CSS -->
+    <link href="../assets/node_modules/morrisjs/morris.css" rel="stylesheet">
+
+    <!--c3 CSS -->
+    <link href="../assets/node_modules/c3-master/c3.min.css" rel="stylesheet">
+    <!--Toaster Popup message CSS -->
+    <link href="../assets/node_modules/toast-master/css/jquery.toast.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- Dashboard 1 Page CSS -->
+    <link href="css/pages/dashboard1.css" rel="stylesheet">
+    <!-- You can change the theme colors from here -->
+    <link href="css/colors/default.css" id="theme" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body class="fix-header fix-sidebar card-no-border">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader__figure"></div>
+            <p class="loader__label">MyLab</p>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <!-- <header class="topbar" w3-include-html="Teacherheader.html">
+
+        </header> -->
+
+        <aside class="left-sidebar" w3-include-html="new-teacher-sidebar.html">
+
+        </aside>
+
+        <div class="page-wrapper">
+
+            <div class="container-fluid" id="addcourseDiv">
+              <h2 style="color:#6600ff; text-align:center"><b>Add Courses</b></h2>
+              <form id="courseForm"  method = "POST">
+                <div class="form-group ">
+                  <label for="courseName">Course Name</label>
+                  <input  type="text" class="form-control" id="courseName" name="courseName"  placeholder="UserName" required>
+                </div>
+                <div class="form-group ">
+                  <label for="education">Course Category</label>
+                  <select class="form-control" id="courseCategory" name="courseCategory" required>
+                    <option value="" selected>Choose from following</option>
+
+                </select>
+                </div>
+                <!-- <div class="form-group ">
+                  <label for="education">Teacher Name</label>
+                  <select class="form-control" id="teacherName" name="teacherName" required>
+                    <option value="" selected>Choose from following</option>
+
+                </select>
+                </div> -->
+                <div class="form-group ">
+                  <label for="Thumbnail">Thumbnail</label>
+                  <input type="file" class="form-control" name="image" id="Thumbnail">
+                  </div>
+                <div class="form-group">
+                  <label for="description">Description</label><br>
+                  <textarea  id="description" name="description" rows="4" cols="105" required></textarea>
+                </div>
+                <div>
+                <button type="submit" class="btn" style="background-color:#6600ff;color:white;">Submit</button>
+              </div>
+              <div class="form-group">
+                  <div class="col-xs-12" style="color:red; text-align:center" id="error_msg">
+                  </div>
+                  <div class="col-xs-12" style="color:green; text-align:center" id="success_msg">
+                  </div>
+              </div>
+             </form>
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <script src="../assets/node_modules/jquery/jquery.min.js"></script>
+    <!-- Bootstrap popper Core JavaScript -->
+    <script src="../assets/node_modules/bootstrap/js/popper.min.js"></script>
+    <script src="../assets/node_modules/bootstrap/js/bootstrap.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="js/perfect-scrollbar.jquery.min.js"></script>
+    <!--Wave Effects -->
+    <script src="js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="js/custom.min.js"></script>
+    <!-- ============================================================== -->
+    <!-- This page plugins -->
+    <!-- ============================================================== -->
+    <!--morris JavaScript -->
+    <script src="../assets/node_modules/raphael/raphael-min.js"></script>
+    <script src="../assets/node_modules/morrisjs/morris.min.js"></script>
+    <!--c3 JavaScript -->
+    <script src="../assets/node_modules/d3/d3.min.js"></script>
+    <script src="../assets/node_modules/c3-master/c3.min.js"></script>
+    <!-- Popup message jquery -->
+    <script src="../assets/node_modules/toast-master/js/jquery.toast.js"></script>
+    <!-- Chart JS -->
+    <script src="js/dashboard1.js"></script>
+    <script src="js/common.js"></script>
+    <!-- ============================================================== -->
+    <!-- Style switcher -->
+    <!-- ============================================================== -->
+    <script src="../assets/node_modules/styleswitcher/jQuery.style.switcher.js"></script>
+    <script src=
+  "https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+    <!-- end - This is for export functionality only -->
+
+
+<script>
+$(document).ready(function(e){
+  var teacherEmail = getCookie("email");
+  getStudent(teacherEmail);
+
+getCourseCategories();
+//getTeacherName();
+$("#courseForm").on('submit',(function(e) {
+  e.preventDefault();
+  $.ajax({
+     url: "../backend/course.php",
+     type: "POST",
+     data:  new FormData(this),
+     contentType: false,
+           cache: false,
+     processData:false,
+     beforeSend : function()
+     {
+     },
+    success: function(response)
+    {
+      var resp = JSON.parse(response);
+      if(resp.StatusCode == 200){
+      //  console.log(resp.Message);
+      setTimeout(function(){
+        location.reload(true);
+      }, 2000);
+      $("#success_msg").html(resp.Message);
+      }
+      else{
+        console.log(resp.Message);
+        $("#error_msg").html(resp.Message);
+      }
+    },
+    error: function(e)
+    {
+      alert("error");
+    }
+  });
+      }));
+
+
+
+});
+//submit Courses
+
+
+function getCourseCategories(){
+  $.ajax({
+    type: 'POST',
+    url: "../backend/teacherOperations.php",
+    data: {
+      action: "getCourseCategories"
+
+    },
+    success: function(response) {
+      var resp = JSON.parse(response);
+      if(resp.StatusCode == 200){
+          var teachers = resp.Data;
+          console.log(teachers);
+          for(var i=0; i<teachers.length;i++){
+            //alert(teachers[i][courseCategory]);
+           var rowhtml = '<option value='+teachers[i]["courseCategoryId"]+' class="category" categoryid='+teachers[i]["courseCategoryId"]+'>'+teachers[i]["courseCategory"]+'</option>';
+              $("#courseCategory").append(rowhtml);
+          // $("#courseCategory").html('<option>'+teachers[i]["courseCategory"]+'</option>');
+
+
+          }
+
+      }
+    }
+  });
+}
+
+
+// function getTeacherName(){
+//   $.ajax({
+//     type: 'POST',
+//     url: "../backend/teacherOperations.php",
+//     data: {
+//       action: "getTeacherName"
+//
+//     },
+//     success: function(response) {
+//       var resp = JSON.parse(response);
+//       if(resp.StatusCode == 200){
+//           var teachers = resp.Data;
+//           console.log(teachers);
+//           for(var i=0; i<teachers.length;i++){
+//             //alert(teachers[i][courseCategory]);
+//            var rowhtml = '<option value='+teachers[i]["teacher_id"]+'>'+teachers[i]["UserName"]+'</option>';
+//               $("#teacherName").append(rowhtml);
+//           // $("#courseCategory").html('<option>'+teachers[i]["courseCategory"]+'</option>');
+//
+//
+//           }
+//
+//       }
+//     }
+//   });
+// }
+//
+
+function getStudent(teacherEmail){
+
+  $.ajax({
+    type: 'POST',
+    url: '../backend/teacherdatabyemail.php',
+    data: {
+      action: "getTeacherDataByEmail",
+      teacherEmail : teacherEmail
+    },
+    success: function(response) {
+      var resp = JSON.parse(response);
+      if(resp.StatusCode == 200){
+
+          $("#teacherName").html(resp.Data[0].UserName);
+          $("#teacherEmail").html(resp.Data[0].Email);
+          $("#teacherNameHeader").html(resp.Data[0].UserName);
+          $(".teacherImage").attr("src",resp.Data[0].Image);
+      }
+    }
+  });
+
+
+}
+
+
+
+function getCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0;i < ca.length;i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1,c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        }
+        return null;
+    }
+
+
+
+
+
+
+
+
+</script>
+<script src="../assets/node_modules/styleswitcher/jQuery.style.switcher.js"></script>
+</body>
+
+</html>
+<script>
+includeHTML();
+</script>
